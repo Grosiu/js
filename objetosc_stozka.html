@@ -2,12 +2,14 @@
 <html>
 <head>
     <title>Objętość stożka</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"> 
 </head>
 <style>
     body {
         background-color: #171717;
         color: whitesmoke;
-        font-family: 'Courier New', Courier, monospace; 
+        font-family: 'Roboto Mono', monospace;
         font-size: 1.5rem;
         
         padding: 30px;
@@ -56,8 +58,8 @@
             <input type="submit" value="Oblicz!" id="btn" onclick="vAndP(h.value, r.value)">
         </div>                  
     </form>
-    <p class="capa">Objętość: </p>
-    <p class="area">Pole: </p>
+    <p class="capa">Objętość: <span id='capa'></span></p> 
+    <p class="area">Pole:  <span id='area'></span></p> 
 
     <script>
         function vAndP(h, r){
@@ -71,7 +73,8 @@
         const poleObj = vAndP();
         const pole = poleObj[0];
         const obj = poleObj[1];
-        console.log(pole, obj)
+        document.getElementById('capa').innerHTML = obj;
+        document.getElementById('area').innerHTML = pole;
     </script>
 </body>
 </html>
