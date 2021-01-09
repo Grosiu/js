@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Objętość stożka</title>
+</head>
+<style>
+    body {
+        background-color: #171717;
+        color: whitesmoke;
+        font-family: 'Courier New', Courier, monospace; 
+        font-size: 1.5rem;
+        
+        padding: 30px;
+    }
+    h2 {
+        font-weight: 500;
+    }
+    form {
+        width: 300px;
+    }
+    div {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+    }
+    .btn-wrapper {
+        justify-content: end;
+        
+    }
+    #btn {
+        padding: 10px;
+        color: #171717;
+        font: inherit;
+        font-size: 1rem;
+        border: none;
+    }
+    #btn:hover {
+        background-color:#534c4c;
+        color:white;
+        font: inherit;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+    }
+</style>
+<body>
+    <h2>Obliczanie objętości stożka: </h2>
+    <form>
+        <div>
+            <label for="radius">Promień</label> <input type="text" id="r"> 
+        </div>
+        <div>
+            <label for="height">Wysokość</label> <input type="text" id="h"> 
+        </div>
+        <div>
+            <label for="result">Wynik</label> <input type="text" id="res" readonly> 
+        </div>
+        <div class="btn-wrapper">
+            <input type="submit" value="Oblicz!" id="btn" onclick="vAndP(h, r)">
+        </div>                  
+    </form>
+    <p class="capa">Objętość: </p>
+    <p class="area">Pole: </p>
+
+    <script>
+        function vAndP(h, r){
+            const height = h;
+            const radius = r;
+            const l = Math.sqrt(Math.pow(height, 2) + Math.pow(radius, 2));
+            const pole = (Math.PI * Math.pow(radius, 2)) + Math.PI * radius * l;
+            const v = (Math.PI * Math.pow(r, 2) * height) / 3;
+            return [pole, v];
+        }
+        const poleObj = vAndP();
+        const pole = poleObj[0];
+        const obj = poleObj[1];
+        console.log(pole, obj)
+    </script>
+</body>
+</html>
